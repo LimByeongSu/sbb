@@ -10,4 +10,8 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
     //하지만 책에서는 제목이 중복되지 않는다는 가정을하므로 Question을 반환하는걸로 진행한다.
     //SELECT * FROM question WHERE question.subject = subject(입력받은거)
     Optional<Question> findBySubject(String subject);
+
+
+    //SELECT * FROM question WHERE  question.subject=subject1 and question.content=subject2
+    Optional<Question> findBySubjectAndContent(String subject1, String subject2);
 }
