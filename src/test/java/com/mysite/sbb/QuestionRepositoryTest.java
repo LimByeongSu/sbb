@@ -32,13 +32,21 @@ class QuestionRepositoryTest {
     @Test
     @DisplayName("findById")
     void t2() {
-        Optional<Question> oq = this.questionRepository.findById(1L);
+        Optional<Question> op = this.questionRepository.findById(1L);
 
-        if(oq.isPresent()) {
-            Question q = oq.get();
+        if(op.isPresent()) {
+            Question q = op.get();
             assertEquals("sbb가 무엇인가요?", q.getSubject());
         }
 
     }
 
+
+    @Test
+    @DisplayName("findById")
+    void t3() {
+        Question q = this.questionRepository.findBySubject("sbb가 무엇인가요?").get();
+        assertEquals(1, q.getId());
+
+    }
 }
