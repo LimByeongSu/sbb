@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.implementation
 import org.gradle.kotlin.dsl.runtimeOnly
 
 plugins {
@@ -35,6 +36,7 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     runtimeOnly("com.h2database:h2")
+    implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 tasks.withType<Test> {
