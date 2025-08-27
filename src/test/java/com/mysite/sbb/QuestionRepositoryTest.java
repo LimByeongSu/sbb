@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -102,7 +103,7 @@ class QuestionRepositoryTest {
 
 
     @Test
-    @DisplayName("답변(answer) 데이터 저장")
+    @DisplayName("답변(answer) 데이터 생성 - repository버전")
     void t8() {
         Question q = this.questionRepository.findById(2L).get();
 
@@ -116,5 +117,17 @@ class QuestionRepositoryTest {
         this.answerRepository.save(a);
     }
 
+    @Test
+    @DisplayName("답변(answer) 데이터 생성 - OneToMany버전")
+    @Transactional  //왜 이 테스트에만 @Transactional 넣었는가 
+                    // ->  
+    void t9() {
+        Question question5 = questionRepository.findById(2L).get();
 
+        question5.addAnswer("네 자동으로 생성됩니다.");
+        //insert가 일어나지 않음 -> repository로 저장하지 않았기 때문
+        //클래스의 일반 속성은 변경이 일어나면 자동으로 반영을 한다.
+        //하지만 리스트는 add, remove를 해도 리스트(주소값)는 그대로이기 때문에 더티체킹이 안되는 것이다.
+        //리스트의 내부 값의 변화를 인지하고 더티체킹을 하길 원한다면 OneToMany옵션에 CascadeType.PERSIST를 추가해야함
+    }
 }
