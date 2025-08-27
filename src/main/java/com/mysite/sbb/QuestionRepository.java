@@ -2,6 +2,7 @@ package com.mysite.sbb;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface QuestionRepository extends JpaRepository<Question,Long> {
@@ -14,4 +15,8 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
 
     //SELECT * FROM question WHERE  question.subject=subject1 and question.content=subject2
     Optional<Question> findBySubjectAndContent(String subject1, String subject2);
+
+
+
+    List<Question> findBySubjectLike(String subject);
 }
