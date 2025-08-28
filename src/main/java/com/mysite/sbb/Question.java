@@ -28,7 +28,7 @@ public class Question {
     //그래도 DB에는 answers가 따로 테이블로 생긴다.
     //JPA는 어떻게든 DB를 사용할수 있게 만들어주기때문
     //OneToMany같은 실제 DB관계가 아니라 객체사이의 개념적인 관계로 생각하자
-    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     //mappedBy를 사용하면 위에서 만들어진 의미없는 추가 테이블 생성을 막을수있따.
     //Answer의 question과 연결된다는 느낌이다
     // cascade옵션은 부모(질문글)가 삭제되어 고아가 된 자식(댓글)을 부모가 삭제될때 같이 삭제되는 옵션이다.

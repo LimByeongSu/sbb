@@ -138,10 +138,12 @@ class QuestionRepositoryTest {
     @DisplayName("2번 질문의 답글 조회")
     void t10() {
         Question q2 = questionRepository.findById(2L).get();
-        Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
+
+        System.out.println(q2.getSubject() + q2.getAnswers());
+        //Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
 
 
-        System.out.println("answer: " +answer.getContent());
+        //System.out.println("answer: " +answer.getContent());
 
 
     }
