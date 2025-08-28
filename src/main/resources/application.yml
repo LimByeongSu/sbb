@@ -3,7 +3,8 @@ spring:
     name: sbb
 
   thymeleaf:
-    cache: false  #원래 캐시는 사용하면 좋지만 개발할때는 불편하니까 끈다.(변경내용 반영이 느리기때문)
+    cache: false
+    prefix: file:src/main/resources/templates/  #원래 캐시는 사용하면 좋지만 개발할때는 불편하니까 끈다.(변경내용 반영이 느리기때문)
 
   profiles:
     active: dev

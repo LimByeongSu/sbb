@@ -29,11 +29,11 @@ public class TestInitData {
         return args -> {
 
             if(this.questionRepository.count() > 0) {
-                System.out.println("test data is 충분");
+                //System.out.println("test data is 충분");
                 return;
             }
 
-            System.out.println("test data is not 충분");
+            //System.out.println("test data is not 충분");
 
             Question q1 = new Question();
             q1.setSubject("sbb가 무엇인가요?");
