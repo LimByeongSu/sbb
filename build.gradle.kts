@@ -37,6 +37,9 @@ dependencies {
 
     runtimeOnly("com.h2database:h2")
     implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    implementation ("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation ("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
 }
 
 tasks.withType<Test> {
