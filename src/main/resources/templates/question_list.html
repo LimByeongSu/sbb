@@ -5,18 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    [[${value}]]
-</div>
-<div th:text="aaa">
+<table border="1">
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="question  : ${questionList}">
+            <td th:text="${question.id}">1</td>
+            <td th:text="${question.subject}">안녕하세요</td>
+        </tr>
 
-</div>
-<div th:text="${value}">
-
-</div>
-
-<ul>
-    <li th:each="num : ${list}"  th:text="${num}"></li>
-</ul>
+    </tbody>
+</table>
 </body>
 </html>
