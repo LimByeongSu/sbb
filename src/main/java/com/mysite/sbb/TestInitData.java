@@ -9,12 +9,12 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Profile;
 
 import java.time.LocalDateTime;
 
 
-@Profile("test")
+//@Profile("test")    //이건 테스트할때 test설정을 쓰는거고 테스트가 끝나면 사라지게된다.
+//그래서 실제 개발을 할때는 @Profile("test")를 업애주면된다.
 @Configuration
 @RequiredArgsConstructor
 public class TestInitData {
