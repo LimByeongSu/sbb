@@ -140,6 +140,7 @@ class QuestionRepositoryTest {
         Question q2 = questionRepository.findById(2L).get();
         Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
 
+
         System.out.println("answer: " +answer.getContent());
 
 
