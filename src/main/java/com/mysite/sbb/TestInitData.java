@@ -40,6 +40,7 @@ public class TestInitData {
             q2.setSubject("스프링부트 모델 질문입니다.");
             q2.setContent("id는 자동으로 생성되나요?");
             q2.setCreateDate(LocalDateTime.now());
+            q2.addAnswer("This is automatic answer");
             this.questionRepository.save(q2);  // 두번째 질문 저장
         };
     }

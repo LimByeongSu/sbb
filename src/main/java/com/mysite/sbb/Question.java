@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class Question {
     //mappedBy를 사용하면 위에서 만들어진 의미없는 추가 테이블 생성을 막을수있따.
     //Answer의 question과 연결된다는 느낌이다
     // cascade옵션은 부모(질문글)가 삭제되어 고아가 된 자식(댓글)을 부모가 삭제될때 같이 삭제되는 옵션이다.
-    private List<Answer> answers;   //1대N관계라서 answer가 여러개 일수있음
+    private List<Answer> answers = new ArrayList<>();   //1대N관계라서 answer가 여러개 일수있음
 
     //OneToMany는 필수는 아니다. Question은 Answer이 필수가 아니기 때문이다.
     //반대로 Answer은 Question이 필수라 ManyToOne은 필수이다.

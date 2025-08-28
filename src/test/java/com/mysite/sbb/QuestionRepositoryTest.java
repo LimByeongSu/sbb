@@ -133,4 +133,15 @@ class QuestionRepositoryTest {
         //하지만 리스트는 add, remove를 해도 리스트(주소값)는 그대로이기 때문에 더티체킹이 안되는 것이다.
         //리스트의 내부 값의 변화를 인지하고 더티체킹을 하길 원한다면 OneToMany옵션에 CascadeType.PERSIST를 추가해야함
     }
+
+    @Test
+    @DisplayName("2번 질문의 답글 조회")
+    void t10() {
+        Question q2 = questionRepository.findById(2L).get();
+        Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
+
+        System.out.println("answer: " +answer.getContent());
+
+
+    }
 }
