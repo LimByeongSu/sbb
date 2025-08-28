@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -120,7 +121,9 @@ class QuestionRepositoryTest {
     @Test
     @DisplayName("답변(answer) 데이터 생성 - OneToMany버전")
     @Transactional  //왜 이 테스트에만 @Transactional 넣었는가 
-                    // ->  
+                    // ->
+    @Rollback(false)   //JPA는 트랜잭션일 경우 @Rollback을 사용하면 결과를 DB에 반영을 시키지 않는다.
+                        //그래서 insert문이 나가지 않았던 것이고 이 테스트케이스에선 false로 해야한다.
     void t9() {
         Question question5 = questionRepository.findById(2L).get();
 
