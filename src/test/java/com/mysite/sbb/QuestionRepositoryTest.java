@@ -136,14 +136,15 @@ class QuestionRepositoryTest {
 
     @Test
     @DisplayName("2번 질문의 답글 조회")
+    @Transactional
     void t10() {
-        Question q2 = questionRepository.findById(2L).get();
-
-        System.out.println(q2.getSubject() + q2.getAnswers());
-        //Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
+        Question q2 = questionRepository.findById(2L).get(); //Repository가 제공하는 메서드는 기본적으로 @Transactional을 가지고있다.
 
 
-        //System.out.println("answer: " +answer.getContent());
+        Answer answer = q2.getAnswers().get(0);//첫번째 답변 가져오기
+
+
+        System.out.println("answer: " +answer.getContent());
 
 
     }
